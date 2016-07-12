@@ -1,0 +1,65 @@
+<!--<p>
+  <strong>Project:</strong>
+  <%= @project.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p> -->
+
+<p>
+  <strong> Name: </strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong> Author(s): </strong>
+  <% if !@project.people.empty? %>
+  <%= @project.people.map{ |person| " " + person.name}.join(",")  %>
+  <% end %>
+</p>
+<p>
+  <strong>  Description: </strong>
+  <%= @project.description %>
+</p>
+<p>
+   <strong> Category: </strong>
+    <%= @project.category %>
+  </p>
+<p>
+  <strong>  Update Frequency: </strong>
+  
+   <%= @project.update_rate %> 
+  </p>
+<p>
+  <strong>  Typical Users: </strong>
+  <%= @project.typical_user %> 
+  </p>
+<p>
+     <strong> Timeline(s): </strong>
+    
+    <% if !@project.timelines.empty? %>
+    <%= @project.timelines.map{ |timeline| " " + timeline.lifecycle.gsub('_',' ').capitalize!}.join(",") %>
+    <% end %>
+  </p>
+<p>
+     <strong> Tags: </strong>
+    
+    <% if !@project.tags.empty? %>
+    <%= @project.tags.map{ |tag| " " + tag.keyword}.join(",") %>
+    <% end %>
+</p>
+
+
+<p>
+  <strong>Link:</strong>
+ <a href=<%= @project.link %>>  <%= @project.link %> </a>
+</p>
+
+<!-- <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+     <td><%= button_to 'Destroy', project_path(@project),
+             method: :delete, data: { confirm: 'Are you sure?' }  %> </td> -->
+
+<%= link_to 'Back', projects_path %>
+

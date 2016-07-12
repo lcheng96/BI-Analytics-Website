@@ -1,0 +1,30 @@
+<h1> New Project </h1>
+<%= form_for :project, url: projects_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </p>
+  <ul>
+    <%= f.fields_for :tag do |tag_form| %>
+    <%= tag_form.label :keyword %>
+    <%= tag_form.text_field :keyword %>
+    <% end %>
+  </ul>
+    <%= f.fields_for :timeline do |timeline_form| %>
+    <%= timeline_form.label :lifecycle, "Project's Lifecycle" %>
+    <%= timeline_form.select :lifecycle, Timeline.lifecycles.collect {|value| [value[0].gsub('_',' ').capitalize!, value[1]]}, {include_blank: false, :multiple => true}  %>
+    <% end %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

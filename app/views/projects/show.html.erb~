@@ -1,0 +1,15 @@
+<p>
+  <strong>Project:</strong>
+  <%= @project.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+<p>
+  <strong>Link:</strong>
+ <a href=<%= @project.link %>>  <%= @project.link %> </a>
+</p>
+
+<%= link_to 'Back', projects_path %>

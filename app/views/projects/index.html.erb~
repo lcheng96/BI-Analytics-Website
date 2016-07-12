@@ -1,0 +1,43 @@
+<h1>Listing of Projects</h1>
+ 
+<table>
+  <tr>
+    <th>Name: </th>
+    <!-- <th>Author(s): </th> --->
+   <th>Description: </th>
+    <!-- <th>Category: </th>
+    <th>Update Frequency: </th>
+    <th>Typical Users: </th>
+    <th>Timeline(s): </th>
+    <th>Tags: </th>-->
+  </tr>
+  
+  <% @projects.each do |project| %>
+  <tr>
+    <td><a href=<%= project_path(project)  %>> <%= project.name %> </a> </td>
+    <!-- <td>
+    <% if !project.people.empty? %>
+    <%= project.people.map{ |person| " " + person.name}.join(",") %>
+    <% end %>
+    </td> -->
+    <td><%= project.description %></td>
+    <!-- <td><%= project.category %> </td>
+    <td><%= project.update_rate %> </td>
+    <td><%= project.typical_user %> </td>
+    <td>
+      <% if !project.timelines.empty? %>
+      <%= project.timelines.map{ |timeline| " " + timeline.lifecycle.gsub('_',' ').capitalize!}.join(",") %>
+      <% end %>
+    </td>
+
+    <td>
+      <% if !project.tags.empty? %>
+      <%= project.tags.map{ |tag| " " + tag.keyword}.join(",") %>
+      <% end %>
+    </td> -->
+    <!-- <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= button_to 'Destroy', project_path(project),
+              method: :delete, data: { confirm: 'Are you sure?' }  %> </td> -->
+  </tr>
+  <% end %>
+</table>

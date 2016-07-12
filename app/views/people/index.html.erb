@@ -1,0 +1,17 @@
+<h1>Listing of Personel</h1>
+ 
+<table>
+  <tr>
+    <th>Name: </th>
+    <th>Role: </th>
+  </tr>
+ 
+  <% @people.each do |person| %>
+    <tr>
+      <td><a href=<%= person_path(person)  %>> <%= person.name %> </a> </td>
+      <td><%= person.group %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', root_url %>

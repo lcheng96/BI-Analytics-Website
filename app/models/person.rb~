@@ -1,0 +1,6 @@
+class Person < ActiveRecord::Base
+  
+  enum group: [ :student, :faculty, :employee]
+  validates :name, presence: true
+  validates :group, presence: true
+end

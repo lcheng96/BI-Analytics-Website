@@ -1,0 +1,10 @@
+<h1> New Tag </h1>
+<%= form_for :tag, url: tags_path do |f| %>
+  <p>
+    <%= f.label :keyword %><br>
+    <%= f.text_field :keyword %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
