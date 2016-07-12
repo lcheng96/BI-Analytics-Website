@@ -35,9 +35,9 @@
       <%= project.tags.map{ |tag| " " + tag.keyword}.join(",") %>
       <% end %>
     </td> -->
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+   <!-- <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= button_to 'Destroy', project_path(project),
-              method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
+              method: :delete, data: { confirm: 'Are you sure?' }  %> </td> -->
   </tr>
   <% end %>
 </table>
