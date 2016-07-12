@@ -16,7 +16,9 @@
 <p>
   <strong> Author(s): </strong>
   <% if !@project.people.empty? %>
-  <%= @project.people.map{ |person| " " + person.name}.join(",")  %>
+    <% @project.people.each do |person| %>  
+    <%= link_to " " + person.name, controller: "projects", search: person.name %>
+    <% end %> 
   <% end %>
 </p>
 <p>
@@ -25,7 +27,7 @@
 </p>
 <p>
    <strong> Category: </strong>
-    <%= @project.category %>
+    <%= link_to @project.category, controller: "projects", search: @project.category %>
   </p>
 <p>
   <strong>  Update Frequency: </strong>
@@ -37,17 +39,20 @@
   <%= @project.typical_user %> 
   </p>
 <p>
-     <strong> Timeline(s): </strong>
-    
+  <strong> Timeline(s): </strong>
     <% if !@project.timelines.empty? %>
-    <%= @project.timelines.map{ |timeline| " " + timeline.lifecycle.gsub('_',' ').capitalize!}.join(",") %>
+      <% @project.timelines.each do |timeline| %>  
+      <%= link_to " " + timeline.lifecycle.gsub('_',' ').capitalize!, controller: "projects", search: timeline.lifecycle%>
+      <% end %> 
     <% end %>
   </p>
 <p>
      <strong> Tags: </strong>
     
     <% if !@project.tags.empty? %>
-    <%= @project.tags.map{ |tag| " " + tag.keyword}.join(",") %>
+      <% @project.tags.each do |tag| %>  
+      <%= link_to " " + tag.keyword, controller: "projects", search: tag.keyword%>
+      <% end %>
     <% end %>
 </p>
 
