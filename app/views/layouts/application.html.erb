@@ -20,6 +20,16 @@
       <ul class ="nav navbar-nav">
 	<li> <%= link_to 'Projects', controller: 'projects' %> </li>
       </ul>
+      <ul class ="nav navbar-nav">
+	<li> <%= link_to 'Locations', controller: 'projects' %> </li>
+      </ul>
+      <ul class ="nav navbar-nav">
+	<li> <%= link_to 'Tags', controller: 'tags' %> </li>
+      </ul>
+      <ul class ="nav navbar-nav">
+	<li> <%= link_to 'Admin', controller: 'tags' %> </li>
+      </ul>
+
       <form class = "navbar-form navbar-right" role = "search">
 	<%= form_tag projects_path, :method => 'get', :id => 'projects_search' do %>
 	<p align = "right">

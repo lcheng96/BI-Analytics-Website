@@ -1,10 +1,13 @@
-<h1>Listing of Projects</h1>
- 
+<% if @projects.count != Project.all.count %>
+  <h1>List of Relevant Projects:</h1>
+<% else %>
+  <h1>List of All Projects: </h1>
+<% end %>
 <table class="table table-bordered">
   <tr>
     <th>Name: </th>
     <!-- <th>Author(s): </th> --->
-   <th>Description: </th>
+    <th>Description: </th>
     <!-- <th>Category: </th>
     <th>Update Frequency: </th>
     <th>Typical Users: </th>
