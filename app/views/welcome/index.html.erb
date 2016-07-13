@@ -1,26 +1,34 @@
-<h1><center> Laureate BI Analytics </center></h1>
 
-<%= form_tag projects_path, :method => 'get', :id => 'projects_search' do %>
-<p>
+<div class = "jumbotron">
+  <div class = "container">
+    <h1><center> Laureate BI Analytics </center></h1>
+    <p><center> Where you can find a complete listing of all completed projects </center> </p>
+  </div>
+</div>
+<!-- <%= form_tag projects_path, :method => 'get', :id => 'projects_search' do %>
+ <p>
   <%= text_field_tag 'search', params[:search] %>
   <%= submit_tag "Search", :name => nil %>
 </p>
 <% end %>
+-->
 
 <br>
-<%= link_to 'Prospect', controller: "projects", search: "prospect" %>
-<%= link_to 'Applicant', controller: "projects", search: "applicant" %>
-<%= link_to 'Reserved', controller: "projects", search: "reserved" %>
-<%= link_to 'New Student', controller: "projects", search: "new_student" %>
-<%= link_to 'Continuing', controller: "projects", search: "continuing_student" %>
-<%= link_to 'Graduating', controller: "projects", search: "graduating" %>
-<%= link_to 'Alumni', controller: "projects", search: "alumni" %>
+<center>
+  <%= link_to 'Prospect', controller: "projects", search: "prospect" %>
+  <%= link_to 'Applicant', controller: "projects", search: "applicant" %>
+  <%= link_to 'Reserved', controller: "projects", search: "reserved" %>
+  <%= link_to 'New Student', controller: "projects", search: "new_student" %>
+  <%= link_to 'Continuing', controller: "projects", search: "continuing_student" %>
+  <%= link_to 'Graduating', controller: "projects", search: "graduating" %>
+  <%= link_to 'Alumni', controller: "projects", search: "alumni" %>
+</center>
 <br>
 <br>
-<%= link_to 'Personal at Laureate GPS BI Analytics', controller: 'people' %>
+
 <%= link_to 'Add a person', new_person_path %>
 <br>
-<%= link_to 'Projects at Laureate GPS BI Analytics', controller: 'projects' %>
+
 <%= link_to 'Add a new project', new_project_path %>
 <br>
 <%= link_to 'Related Tags', controller: 'tags' %>
