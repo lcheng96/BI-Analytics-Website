@@ -32,7 +32,7 @@
 
 <br>
 <center>
-   <%= link_to "People " , people_path %>
+  <%= link_to "People " , people_path %>
   <%= link_to "Locations" , locations_path %>
   <%= link_to "Timeline" , timelines_path %>
   <%= link_to "Tags", tags_path %>

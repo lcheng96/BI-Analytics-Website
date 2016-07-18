@@ -1,0 +1,35 @@
+
+<div class = "jumbotron">
+  <div class = "container">
+    <h1><center> Explore by Timeline </center></h1>
+  </div>
+</div>
+<!-- <%= form_tag projects_path, :method => 'get', :id => 'projects_search' do %>
+ <p>
+  <%= text_field_tag 'search', params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
+-->
+
+<br>
+<center>
+  <%= link_to image_tag("/assets/prospect.png", style: "width: 13%; height: auto"), controller: "projects", search: "prospect"%>  
+  <%= link_to image_tag('/assets/applicant.png', style: "width: 13%; height: auto"), controller: "projects", search: "applicant" %>
+  <%= link_to image_tag('/assets/reserved.png', style: "width: 13%; height: auto"), controller: "projects", search: "reserved" %>
+  <%= link_to image_tag('/assets/newstudent.png', style: "width: 13%; height: auto"), controller: "projects", search: "new_student" %>
+  <%= link_to image_tag('/assets/continuing.png', style: "width: 13%; height: auto"), controller: "projects", search: "continuing_student" %>
+  <%= link_to image_tag('/assets/graduating.png', style: "width: 13%; height: auto"), controller: "projects", search: "graduating" %>
+  <%= link_to image_tag('/assets/alumni.png', style: "width: 13%; height: auto"), controller: "projects", search: "alumni" %>
+</center>
+<br>
+<br>
+<!--
+<%= link_to 'Add a person', new_person_path %>
+<br>
+
+<%= link_to 'Add a new project', new_project_path %>
+<br>
+<%= link_to 'Add a new Tag', new_tag_path %>
+-->
+
