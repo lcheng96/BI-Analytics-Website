@@ -9,21 +9,21 @@ class Project < ActiveRecord::Base
   def self.search(search)
     if search
       #byebug
-      @project = Project.where('description like :search OR name like :search OR link like :search OR category like :search OR update_rate like :search OR typical_user like :search', search: "%#{search}%")
-     # if(@project.empty?)
-        Tag.where('keyword like :search', search: "%#{search}%").find_each do |tag|
-          @project |= @project + tag.projects
+      @project = Project.where('description like :search OR name like :search OR link like :search OR category like :search OR update_rate like :search OR typical_user like :search AND external_view = TRUE', search: "%#{search}%")
+
+      Tag.where('keyword like :search', search: "%#{search}%").find_each do |tag|
+        @project |= @project + tag.projects
+      end
+      Person.where('name like :search', search: "%#{search}%").find_each do |person|
+        @project |= @project + person.projects
+      end
+      Timeline.where('lifecycle like :search', search: Timeline.lifecycles["#{search}"]).find_each do |timeline|
+        @project |= @project + timeline.projects
         end
-        Person.where('name like :search', search: "%#{search}%").find_each do |person|
-          @project |= @project + person.projects
-         end
-        Timeline.where('lifecycle like :search', search: Timeline.lifecycles["#{search}"]).find_each do |timeline|
-          @project |= @project + timeline.projects
-        end
-        Location.where('institution like :search', search: "#%{search}%").find_each do |location|
-          @project |= @project + location.projects
-        end
-        
+      Location.where('institution like :search', search: "#%{search}%").find_each do |location|
+        @project |= @project + location.projects
+      end
+      
      # end
     else #update code for a "sorry didn't find anything related to search
       #otherwise show everything if clicked normally

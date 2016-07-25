@@ -49,13 +49,20 @@ end
   
   def index
    
-    if params[:tag]
-      @projects = Project.tagged_with(params[:tag])
-    else
-      @projects = Project.search(params[:search])
-       #byebug
+    #if params[:tag]
+    #  @projects = Project.tagged_with(params[:tag])
+    #else
+    #@projects = Project.none
+    @projects = Project.search(params[:search])
+    #search_results.each do |project|
+    #  if(project.external_view)
+    #    @projects << project
+    #  end
+    # byebug
+    # end
+    # byebug
       # @projects = Project.all
-    end
+    #end
   end
 
   private

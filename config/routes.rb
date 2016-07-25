@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
+  get 'admins/new'
   get 'welcome/index'
   root 'welcome#index'
+  get 'timelines/explore', to: 'timelines#explore'
+  get 'people/explore', to: 'people#explore'
+  get 'tags/explore', to: 'tags#explore'
+  get 'locations/explore', to: 'locations#explore'
+  get 'admins/login',   to: 'admins#new'
+  post 'admins/login',   to: 'admins#create'
+  delete 'admins/logout',  to: 'admins#destroy'
   resources :departments
   resources :projects
   resources :people
   resources :tags
   resources :timelines
   resources :locations
-
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -40,6 +40,11 @@ class LocationsController < ApplicationController
     
     redirect_to locations_path
   end
+
+  def explore
+
+  end
+
   private 
   def locations_params
     params.require(:location).permit(:region, :institutiony)

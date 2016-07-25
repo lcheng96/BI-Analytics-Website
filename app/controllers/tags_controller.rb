@@ -40,6 +40,11 @@ class TagsController < ApplicationController
     
     redirect_to tags_path
   end
+
+  def explore 
+    
+  end
+
   private 
   def tags_params
     params.require(:tags).permit(:keyword)
