@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   def self.search(search)
     if search
       #byebug
-      @project = Project.where('description like :search OR name like :search OR link like :search OR category like :search OR update_rate like :search OR typical_user like :search AND external_view = TRUE', search: "%#{search}%")
+      @project = Project.where('description like :search OR name like :search OR link like :search OR category like :search OR update_rate like :search OR typical_user like :search AND external_view = :true', search: "%#{search}%",true: true)
 
       Tag.where('keyword like :search', search: "%#{search}%").find_each do |tag|
         @project |= @project + tag.projects
@@ -17,10 +17,10 @@ class Project < ActiveRecord::Base
       Person.where('name like :search', search: "%#{search}%").find_each do |person|
         @project |= @project + person.projects
       end
-      Timeline.where('lifecycle like :search', search: Timeline.lifecycles["#{search}"]).find_each do |timeline|
+      Timeline.where('lifecycle like :search', search: Timeline.lifecycles["#{search}".gsub(' ','_').downcase]).find_each do |timeline|
         @project |= @project + timeline.projects
-        end
-      Location.where('institution like :search', search: "#%{search}%").find_each do |location|
+      end
+      Location.where('institution like :search OR region like :search', search: "%#{search}%").find_each do |location|
         @project |= @project + location.projects
       end
       

@@ -1,1 +1,27 @@
-<h1>jrkewale </h1>
+
+<div class = "jumbotron">
+  <div class = "container">
+    <h1><center> Laureate BI Analytics </center></h1>
+  </div>
+</div>
+<div class = "container">
+  <h2><center> Explore by Person </center></h2>
+</div>
+</br>
+<% @people.each_slice(4) do |people_group| %>
+<div class="row">
+  <% people_group.each do |person| %>
+  <div class="col-md-3">
+    <div class="card">
+      <%= link_to image_tag('/assets/people.png', class: "width: 13%; height: auto", style:"width: 50%; height: auto"), controller: "projects", search: person.name %>
+      <div class="card-block">
+	<h5 div class="card-title"> 
+	    <%= link_to person.name, controller: "projects", search: person.name%>
+	  
+	</h3>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

@@ -9,7 +9,7 @@
   <% @people.each do |person| %>
     <tr>
       <td><a href=<%= person_path(person)  %>> <%= person.name %> </a> </td>
-      <td><%= person.group %></td>
+      <td><%= person.group.capitalize %></td>
     </tr>
   <% end %>
 </table>

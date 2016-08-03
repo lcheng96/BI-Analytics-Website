@@ -17,6 +17,6 @@ class PeopleController < ApplicationController
   end
   
   def explore
-
+    @people = Person.all
   end
 end

@@ -1,1 +1,30 @@
-Jeirojawer
+
+<div class = "jumbotron">
+  <div class = "container">
+    <h1><center> Laureate BI Analytics </center></h1>
+  </div>
+  </br>
+</div>
+<div class = "container">
+  <h2><center> Explore by Tag </center></h2>
+</div>
+</br>
+<% @tags.each_slice(6) do |tag_group| %>
+<div class="row">
+  <% tag_group.each do |tag| %>
+  <div class="col-md-2">
+    <div class="card card-block text-xs-center" style="border-radius: .25rem;
+						       border: 1px solid rgba(0,0,0,.125);">
+      <h4 div class="card-title"> 
+	<center>
+	<%= link_to tag.keyword, {controller: "projects", search: tag.keyword}, { style: "color: #328396;
+											  background-color: #E1ECF4;"} %>
+	</center>
+      </h4>
+      <p class="card-text"><small class="text-muted">Has <%= tag.projects.count %> related project(s)</small></p>
+      
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

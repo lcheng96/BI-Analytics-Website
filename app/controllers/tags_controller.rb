@@ -42,7 +42,7 @@ class TagsController < ApplicationController
   end
 
   def explore 
-    
+    @tags = Tag.all
   end
 
   private 

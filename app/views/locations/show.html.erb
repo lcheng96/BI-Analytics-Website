@@ -1,0 +1,18 @@
+<p>
+  <strong> Region: </strong>
+  <%= @location.region %>
+</p>
+
+<p>
+  <strong> Institution: </strong>
+  <%= @location.institution %>
+</p>
+
+<p>
+  <strong> Related Projects: </strong>
+  <% if !@location.projects.empty? %>
+  <% @location.projects.each do |project| %>  
+  <a href=<%=project_path(project)%>><%= project.name.chomp+"," %> </a>
+  <% end %> 
+  <% end %>
+  
